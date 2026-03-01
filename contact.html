@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact – Himalayan Outdoor Nepal</title>
+  <meta name="description" content="Get in touch for product enquiries, orders, or support. We'd love to hear from you.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <a href="index.html" class="header-brand" aria-label="Himalayan Outdoor Nepal – Home">
+      <img src="logo/Himalayan_outdoor_Logo.jpg" alt="" class="site-logo" width="48" height="48">
+      <span class="site-title">Himalayan Outdoor Nepal</span>
+    </a>
+    <nav class="site-nav" aria-label="Main navigation">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="index.html#products" class="nav-link">Products</a>
+      <a href="contact.html" class="nav-link">Contact</a>
+    </nav>
+    <button type="button" class="nav-toggle" aria-label="Open menu" aria-expanded="false">
+      <span class="nav-toggle__bar"></span>
+      <span class="nav-toggle__bar"></span>
+      <span class="nav-toggle__bar"></span>
+    </button>
+  </header>
+
+  <main class="contact-page">
+    <div class="contact-page__inner">
+      <h1 class="contact-page__title">Contact us</h1>
+      <p class="contact-page__intro">Have a question about our gear or want to place an order? Send us a message and we’ll get back to you.</p>
+
+      <form class="contact-form" id="contact-form" action="https://formspree.io/f/mqedoqld" method="POST">
+        <input type="hidden" name="_subject" value="Enquiry from Himalayan Outdoor Nepal">
+        <div class="form-group">
+          <label for="contact-name" class="form-label">Name</label>
+          <input type="text" id="contact-name" name="name" class="form-input" required placeholder="Your name">
+        </div>
+        <div class="form-group">
+          <label for="contact-email" class="form-label">Email</label>
+          <input type="email" id="contact-email" name="email" class="form-input" required placeholder="your@email.com">
+        </div>
+        <div class="form-group">
+          <label for="contact-phone" class="form-label">Phone</label>
+          <input type="tel" id="contact-phone" name="phone" class="form-input" placeholder="+977 98XXXXXXXX">
+        </div>
+        <div class="form-group">
+          <label for="contact-message" class="form-label">Message</label>
+          <textarea id="contact-message" name="message" class="form-input form-textarea" required rows="5" placeholder="Your enquiry or message..."></textarea>
+        </div>
+        <button type="submit" class="btn btn--primary">Send message</button>
+        <p id="form-status" class="form-status" aria-live="polite"></p>
+      </form>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer__inner">
+      <div class="footer__grid">
+        <div class="footer__col">
+          <h3 class="footer__heading">Company</h3>
+          <ul class="footer__links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <h3 class="footer__heading">Shop</h3>
+          <ul class="footer__links">
+            <li><a href="index.html#products">Products</a></li>
+          </ul>
+        </div>
+      </div>
+      <p class="footer__copy">Himalayan Outdoor Nepal – Quality gear for your adventures. &copy; <span id="year"></span></p>
+    </div>
+  </footer>
+
+  <script src="js/contact.js"></script>
+</body>
+</html>

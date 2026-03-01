@@ -3,20 +3,123 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Himalayan Outdoor Nepal – Product Showcase</title>
+  <title>Himalayan Outdoor Nepal – Trekking & Expedition Gear</title>
+  <meta name="description" content="Quality backpacks and outdoor gear for trekking and expeditions in Nepal. Durable, reliable packs for every trail.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
   <header class="site-header">
-    <img src="logo/Himalayan_outdoor_Logo.jpg" alt="" class="site-logo" width="48" height="48">
-    <h1 class="site-title">Himalayan Outdoor Nepal</h1>
+    <a href="index.html" class="header-brand" aria-label="Himalayan Outdoor Nepal – Home">
+      <img src="logo/Himalayan_outdoor_Logo.jpg" alt="" class="site-logo" width="48" height="48">
+      <span class="site-title">Himalayan Outdoor Nepal</span>
+    </a>
+    <nav class="site-nav" aria-label="Main navigation">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="index.html#products" class="nav-link">Products</a>
+      <a href="contact.html" class="nav-link">Contact</a>
+    </nav>
+    <button type="button" class="nav-toggle" aria-label="Open menu" aria-expanded="false">
+      <span class="nav-toggle__bar"></span>
+      <span class="nav-toggle__bar"></span>
+      <span class="nav-toggle__bar"></span>
+    </button>
   </header>
 
-  <main>
-    <div id="products-container" class="products-grid" aria-live="polite">
-      <p class="loading" id="loading">Loading products…</p>
+  <section class="hero">
+    <div class="hero__inner">
+      <p class="hero__eyebrow">Trekking & Expedition Gear</p>
+      <h1 class="hero__title">Gear for the mountains</h1>
+      <p class="hero__tagline">Quality backpacks built for Himalayan trails. Durable, reliable, ready for your next adventure.</p>
+      <a href="#products" class="hero__cta">View products</a>
     </div>
-  </main>
+  </section>
+
+  <section class="features">
+    <div class="features__inner">
+      <div class="feature">
+        <span class="feature__icon" aria-hidden="true">&#9733;</span>
+        <h3 class="feature__title">Quality gear</h3>
+        <p class="feature__text">Built to last on the trail</p>
+      </div>
+      <div class="feature">
+        <span class="feature__icon" aria-hidden="true">&#128666;</span>
+        <h3 class="feature__title">Nepal-wide delivery</h3>
+        <p class="feature__text">Shipping across Nepal</p>
+      </div>
+      <div class="feature">
+        <span class="feature__icon" aria-hidden="true">&#128737;</span>
+        <h3 class="feature__title">Durable</h3>
+        <p class="feature__text">Reinforced materials</p>
+      </div>
+      <div class="feature">
+        <span class="feature__icon" aria-hidden="true">&#127758;</span>
+        <h3 class="feature__title">Trusted by trekkers</h3>
+        <p class="feature__text">Reliable & affordable</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="products-section" id="products">
+    <div class="products-section__inner">
+      <h2 class="section-title">Our products</h2>
+      <p class="section-subtitle">Trekking and expedition backpacks for every journey.</p>
+      <div id="products-container" class="products-grid" aria-live="polite">
+        <p class="loading" id="loading">Loading products…</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="testimonials">
+    <div class="testimonials__inner">
+      <h2 class="section-title">What trekkers say</h2>
+      <div class="testimonials__grid">
+        <blockquote class="testimonial">
+          <p class="testimonial__text">Solid pack, held up great on the Annapurna circuit. Comfortable and plenty of space.</p>
+          <cite class="testimonial__cite">— Trekker, Kathmandu</cite>
+        </blockquote>
+        <blockquote class="testimonial">
+          <p class="testimonial__text">Good quality and fair price. Delivery was quick. Will order again.</p>
+          <cite class="testimonial__cite">— Customer, Pokhara</cite>
+        </blockquote>
+        <blockquote class="testimonial">
+          <p class="testimonial__text">Exactly what I needed for a week in the mountains. Durable and comfortable.</p>
+          <cite class="testimonial__cite">— Adventurer, Nepal</cite>
+        </blockquote>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta">
+    <div class="cta__inner">
+      <h2 class="cta__title">Ready for your next adventure?</h2>
+      <p class="cta__text">Browse our range of backpacks and find the right pack for your trip.</p>
+      <a href="index.html#products" class="cta__button">Shop products</a>
+    </div>
+  </section>
+
+  <footer class="site-footer" id="contact">
+    <div class="footer__inner">
+      <div class="footer__grid">
+        <div class="footer__col">
+          <h3 class="footer__heading">Company</h3>
+          <ul class="footer__links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <h3 class="footer__heading">Shop</h3>
+          <ul class="footer__links">
+            <li><a href="index.html#products">Products</a></li>
+          </ul>
+        </div>
+      </div>
+      <p class="footer__copy">Himalayan Outdoor Nepal – Quality gear for your adventures. &copy; <span id="year"></span></p>
+    </div>
+  </footer>
 
   <div class="modal-overlay" id="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-title" aria-hidden="true">
     <div class="modal" id="modal">
@@ -33,10 +136,6 @@
       </div>
     </div>
   </div>
-
-  <footer class="site-footer">
-    <p>Himalayan Outdoor Nepal – Quality gear for your adventures.</p>
-  </footer>
 
   <script src="js/main.js"></script>
 </body>
