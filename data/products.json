@@ -1,0 +1,101 @@
+[
+  {
+    "id": "colonel-80",
+    "image": "products/Colonel-80.jpg",
+    "name": "Colonel 80",
+    "description": "Spacious 80L pack for extended treks. Built for comfort and durability in Himalayan conditions.",
+    "specs": {
+      "Capacity": "80 L",
+      "Material": "Ripstop nylon",
+      "Weight": "2.4 kg"
+    }
+  },
+  {
+    "id": "colonel-95",
+    "image": "products/Colonel-95.jpg",
+    "name": "Colonel 95",
+    "description": "Large-capacity expedition pack. Ideal for multi-day expeditions and heavy loads.",
+    "specs": {
+      "Capacity": "95 L",
+      "Material": "Ripstop nylon",
+      "Weight": "2.6 kg"
+    }
+  },
+  {
+    "id": "terra-50-75",
+    "image": "products/Terra_50-75.jpg",
+    "name": "Terra 50–75",
+    "description": "Adjustable volume trekking pack. Versatile for day hikes and overnight trips.",
+    "specs": {
+      "Capacity": "50–75 L",
+      "Material": "Durable polyester",
+      "Weight": "2.0 kg"
+    }
+  },
+  {
+    "id": "air-62",
+    "image": "products/air-62.jpg",
+    "name": "Air 62",
+    "description": "Lightweight ventilated back system. Keeps you cool on long trails.",
+    "specs": {
+      "Capacity": "62 L",
+      "Material": "Lightweight nylon",
+      "Weight": "1.8 kg"
+    }
+  },
+  {
+    "id": "alfa-45",
+    "image": "products/alfa-45.jpg",
+    "name": "Alfa 45",
+    "description": "Compact 45L pack for fast and light adventures. Streamlined design.",
+    "specs": {
+      "Capacity": "45 L",
+      "Material": "Nylon blend",
+      "Weight": "1.4 kg"
+    }
+  },
+  {
+    "id": "captain-25",
+    "image": "products/captain-25.jpg",
+    "name": "Captain 25",
+    "description": "Day pack for trails and travel. Comfortable and practical.",
+    "specs": {
+      "Capacity": "25 L",
+      "Material": "Polyester",
+      "Weight": "0.7 kg"
+    }
+  },
+  {
+    "id": "walker-55",
+    "image": "products/walker-55.jpg",
+    "name": "Walker 55",
+    "description": "Reliable 55L trekking pack. Balanced load distribution and easy access.",
+    "specs": {
+      "Capacity": "55 L",
+      "Material": "Ripstop nylon",
+      "Weight": "1.9 kg"
+    }
+  },
+  {
+    "id": "walker-60-pro",
+    "image": "products/walker-60-pro.jpg",
+    "name": "Walker 60 Pro",
+    "description": "Pro-grade 60L pack. Enhanced features for serious trekkers.",
+    "specs": {
+      "Capacity": "60 L",
+      "Material": "Reinforced nylon",
+      "Weight": "2.1 kg"
+    }
+  },
+  {
+    "id": "walker-80-pro",
+    "image": "products/walker-80-pro.jpg",
+    "name": "Walker 80 Pro",
+    "description": "Expedition-sized 80L pro pack. Maximum capacity and support.",
+    "specs": {
+      "Capacity": "80 L",
+      "Material": "Reinforced nylon",
+      "Weight": "2.5 kg"
+    }
+  }
+]

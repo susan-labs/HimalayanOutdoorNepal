@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Himalayan Outdoor Nepal – Product Showcase</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <img src="logo/Himalayan_outdoor_Logo.jpg" alt="" class="site-logo" width="48" height="48">
+    <h1 class="site-title">Himalayan Outdoor Nepal</h1>
+  </header>
+
+  <main>
+    <div id="products-container" class="products-grid" aria-live="polite">
+      <p class="loading" id="loading">Loading products…</p>
+    </div>
+  </main>
+
+  <div class="modal-overlay" id="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-title" aria-hidden="true">
+    <div class="modal" id="modal">
+      <div class="modal__header">
+        <div class="modal__image-wrap">
+          <img class="modal__image" id="modal-image" src="" alt="">
+        </div>
+        <button type="button" class="modal__close" id="modal-close" aria-label="Close">×</button>
+      </div>
+      <div class="modal__body">
+        <h2 class="modal__name" id="modal-title"></h2>
+        <p class="modal__description" id="modal-description"></p>
+        <dl class="modal__specs" id="modal-specs"></dl>
+      </div>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <p>Himalayan Outdoor Nepal – Quality gear for your adventures.</p>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
