@@ -29,15 +29,24 @@
     });
   }
 
+  function getAssetPath(path) {
+    if (!path) return path;
+    if ((window.location.protocol === 'http:' || window.location.protocol === 'https:') && window.location.host && path.indexOf('/') !== 0) {
+      return '/' + path;
+    }
+    return path;
+  }
+
   function renderProductCard(product) {
     const card = document.createElement('article');
     card.className = 'product-card';
     card.setAttribute('data-product-id', product.id);
     card.setAttribute('role', 'button');
     card.setAttribute('tabindex', '0');
+    var imgSrc = getAssetPath(product.image);
     card.innerHTML =
       '<div class="product-card__image-wrap">' +
-      '<img class="product-card__image" src="' + escapeHtml(product.image) + '" alt="" loading="lazy">' +
+      '<img class="product-card__image" src="' + escapeHtml(imgSrc) + '" alt="" loading="lazy">' +
       '</div>' +
       '<div class="product-card__body">' +
       '<h2 class="product-card__name">' + escapeHtml(product.name) + '</h2>' +
@@ -64,7 +73,7 @@
   }
 
   function openModal(product) {
-    modalImage.src = product.image;
+    modalImage.src = getAssetPath(product.image);
     modalImage.alt = product.name;
     modalTitle.textContent = product.name;
     modalDescription.textContent = product.description || '';
@@ -117,7 +126,10 @@
     });
   }
 
-  fetch('data/products.json')
+  var productsPath = (window.location.protocol === 'http:' || window.location.protocol === 'https:') && window.location.host
+    ? '/data/products.json'
+    : 'data/products.json';
+  fetch(productsPath)
     .then(function (res) {
       if (!res.ok) throw new Error('Failed to load products');
       return res.json();
