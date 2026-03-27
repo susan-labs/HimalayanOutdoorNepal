@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/style.css?v=2">
 </head>
 <body>
   <header class="site-header">
@@ -20,6 +20,10 @@
       <a href="index.html" class="nav-link">Home</a>
       <a href="index.html#products" class="nav-link">Products</a>
       <a href="contact.html" class="nav-link">Contact</a>
+      <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
+        <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="18" height="18"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+        <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="18" height="18" style="display: none;"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+      </button>
     </nav>
     <button type="button" class="nav-toggle" aria-label="Open menu" aria-expanded="false">
       <span class="nav-toggle__bar"></span>
@@ -28,102 +32,106 @@
     </button>
   </header>
 
-  <section class="hero">
-    <div class="hero__inner">
-      <p class="hero__eyebrow">Trekking & Expedition Gear</p>
-      <h1 class="hero__title">Gear for the mountains</h1>
-      <p class="hero__tagline">Quality backpacks built for Himalayan trails. Durable, reliable, ready for your next adventure.</p>
-      <a href="#products" class="hero__cta">View products</a>
-    </div>
-  </section>
-
-  <section class="features">
-    <div class="features__inner">
-      <div class="feature">
-        <span class="feature__icon" aria-hidden="true">&#9733;</span>
-        <h3 class="feature__title">Quality gear</h3>
-        <p class="feature__text">Built to last on the trail</p>
+  <main>
+    <section class="hero">
+      <div class="hero__inner">
+        <p class="hero__eyebrow">Trekking & Expedition Gear</p>
+        <h1 class="hero__title">Gear for the mountains</h1>
+        <p class="hero__tagline">Quality backpacks built for Himalayan trails. Durable, reliable, ready for your next adventure.</p>
+        <a href="#products" class="hero__cta">View products</a>
       </div>
-      <div class="feature">
-        <span class="feature__icon" aria-hidden="true">&#128666;</span>
-        <h3 class="feature__title">Nepal-wide delivery</h3>
-        <p class="feature__text">Shipping across Nepal</p>
-      </div>
-      <div class="feature">
-        <span class="feature__icon" aria-hidden="true">&#128737;</span>
-        <h3 class="feature__title">Durable</h3>
-        <p class="feature__text">Reinforced materials</p>
-      </div>
-      <div class="feature">
-        <span class="feature__icon" aria-hidden="true">&#127758;</span>
-        <h3 class="feature__title">Trusted by trekkers</h3>
-        <p class="feature__text">Reliable & affordable</p>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <section class="products-section" id="products">
-    <div class="products-section__inner">
-      <h2 class="section-title">Our products</h2>
-      <p class="section-subtitle">Trekking and expedition backpacks for every journey.</p>
-      <div id="products-container" class="products-grid" aria-live="polite">
-        <p class="loading" id="loading">Loading products…</p>
-      </div>
-    </div>
-  </section>
-
-  <section class="testimonials">
-    <div class="testimonials__inner">
-      <h2 class="section-title">What trekkers say</h2>
-      <div class="testimonials__grid">
-        <blockquote class="testimonial">
-          <p class="testimonial__text">Solid pack, held up great on the Annapurna circuit. Comfortable and plenty of space.</p>
-          <cite class="testimonial__cite">— Trekker, Kathmandu</cite>
-        </blockquote>
-        <blockquote class="testimonial">
-          <p class="testimonial__text">Good quality and fair price. Delivery was quick. Will order again.</p>
-          <cite class="testimonial__cite">— Customer, Pokhara</cite>
-        </blockquote>
-        <blockquote class="testimonial">
-          <p class="testimonial__text">Exactly what I needed for a week in the mountains. Durable and comfortable.</p>
-          <cite class="testimonial__cite">— Adventurer, Nepal</cite>
-        </blockquote>
-      </div>
-    </div>
-  </section>
-
-  <section class="cta">
-    <div class="cta__inner">
-      <h2 class="cta__title">Ready for your next adventure?</h2>
-      <p class="cta__text">Browse our range of backpacks and find the right pack for your trip.</p>
-      <a href="index.html#products" class="cta__button">Shop products</a>
-    </div>
-  </section>
-
-  <section class="cta cta--contact">
-    <div class="cta__inner">
-      <h2 class="cta__title">Ready to get started?</h2>
-      <p class="cta__text">Contact us today to discuss your order.</p>
-      <a href="contact.html" class="cta__button cta__button--coral">Get in touch</a>
-    </div>
-  </section>
-
-  <section class="contact-info" id="contact">
-    <div class="contact-info__inner">
-      <h2 class="contact-info__title">Contact</h2>
-      <p class="contact-info__intro">Interested in working together? Please get in touch!</p>
-      <div class="contact-info__cards">
-        <div class="contact-info__card">
-          <strong class="contact-info__label">Email</strong>
-          <a href="mailto:info@himalayanoutdoornepal.com" class="contact-info__value">info@himalayanoutdoornepal.com</a>
+    <section class="features">
+      <div class="features__inner">
+        <div class="feature animate-on-scroll">
+          <span class="feature__icon" aria-hidden="true">&#9733;</span>
+          <h3 class="feature__title">Quality gear</h3>
+          <p class="feature__text">Built to last on the trail</p>
         </div>
-        <div class="contact-info__card">
-          <strong class="contact-info__label">Phone</strong>
-          <a href="tel:+9779763336534" class="contact-info__value">+977 9763336534</a>
+        <div class="feature animate-on-scroll" style="transition-delay: 100ms;">
+          <span class="feature__icon" aria-hidden="true">&#128666;</span>
+          <h3 class="feature__title">Nepal-wide delivery</h3>
+          <p class="feature__text">Shipping across Nepal</p>
+        </div>
+        <div class="feature animate-on-scroll" style="transition-delay: 200ms;">
+          <span class="feature__icon" aria-hidden="true">&#128737;</span>
+          <h3 class="feature__title">Durable</h3>
+          <p class="feature__text">Reinforced materials</p>
+        </div>
+        <div class="feature animate-on-scroll" style="transition-delay: 300ms;">
+          <span class="feature__icon" aria-hidden="true">&#127758;</span>
+          <h3 class="feature__title">Trusted by trekkers</h3>
+          <p class="feature__text">Reliable & affordable</p>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
+
+    <section class="products-section" id="products">
+      <div class="products-section__inner">
+        <h2 class="section-title">Our products</h2>
+        <p class="section-subtitle">Trekking and expedition backpacks for every journey.</p>
+        <div id="products-container" class="products-grid" aria-live="polite">
+          <div class="skeleton-card"><div class="skeleton-image"></div><div class="skeleton-body"><div class="skeleton-line"></div><div class="skeleton-line skeleton-line--short"></div></div></div>
+          <div class="skeleton-card"><div class="skeleton-image"></div><div class="skeleton-body"><div class="skeleton-line"></div><div class="skeleton-line skeleton-line--short"></div></div></div>
+          <div class="skeleton-card"><div class="skeleton-image"></div><div class="skeleton-body"><div class="skeleton-line"></div><div class="skeleton-line skeleton-line--short"></div></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="testimonials">
+      <div class="testimonials__inner">
+        <h2 class="section-title">What trekkers say</h2>
+        <div class="testimonials__grid">
+          <blockquote class="testimonial animate-on-scroll">
+            <p class="testimonial__text">Solid pack, held up great on the Annapurna circuit. Comfortable and plenty of space.</p>
+            <cite class="testimonial__cite">— Trekker, Kathmandu</cite>
+          </blockquote>
+          <blockquote class="testimonial animate-on-scroll" style="transition-delay: 100ms;">
+            <p class="testimonial__text">Good quality and fair price. Delivery was quick. Will order again.</p>
+            <cite class="testimonial__cite">— Customer, Pokhara</cite>
+          </blockquote>
+          <blockquote class="testimonial animate-on-scroll" style="transition-delay: 200ms;">
+            <p class="testimonial__text">Exactly what I needed for a week in the mountains. Durable and comfortable.</p>
+            <cite class="testimonial__cite">— Adventurer, Nepal</cite>
+          </blockquote>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta">
+      <div class="cta__inner">
+        <h2 class="cta__title">Ready for your next adventure?</h2>
+        <p class="cta__text">Browse our range of backpacks and find the right pack for your trip.</p>
+        <a href="index.html#products" class="cta__button">Shop products</a>
+      </div>
+    </section>
+
+    <section class="cta cta--contact">
+      <div class="cta__inner">
+        <h2 class="cta__title">Ready to get started?</h2>
+        <p class="cta__text">Contact us today to discuss your order.</p>
+        <a href="contact.html" class="cta__button cta__button--coral">Get in touch</a>
+      </div>
+    </section>
+
+    <section class="contact-info" id="contact">
+      <div class="contact-info__inner">
+        <h2 class="contact-info__title">Contact</h2>
+        <p class="contact-info__intro">Interested in working together? Please get in touch!</p>
+        <div class="contact-info__cards">
+          <div class="contact-info__card">
+            <strong class="contact-info__label">Email</strong>
+            <a href="mailto:info@himalayanoutdoornepal.com" class="contact-info__value">info@himalayanoutdoornepal.com</a>
+          </div>
+          <div class="contact-info__card">
+            <strong class="contact-info__label">Phone</strong>
+            <a href="tel:+9779763336534" class="contact-info__value">+977 9763336534</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
 
   <footer class="site-footer">
     <div class="footer__inner">
@@ -146,22 +154,7 @@
     </div>
   </footer>
 
-  <div class="modal-overlay" id="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-title" aria-hidden="true">
-    <div class="modal" id="modal">
-      <div class="modal__header">
-        <div class="modal__image-wrap">
-          <img class="modal__image" id="modal-image" src="" alt="">
-        </div>
-        <button type="button" class="modal__close" id="modal-close" aria-label="Close">×</button>
-      </div>
-      <div class="modal__body">
-        <h2 class="modal__name" id="modal-title"></h2>
-        <p class="modal__description" id="modal-description"></p>
-        <dl class="modal__specs" id="modal-specs"></dl>
-      </div>
-    </div>
-  </div>
-
+  <script src="js/ui.js"></script>
   <script src="js/main.js"></script>
 </body>
 </html>

@@ -1,67 +1,63 @@
 (function () {
   const container = document.getElementById('products-container');
   const loadingEl = document.getElementById('loading');
-  const modalOverlay = document.getElementById('modal-overlay');
-  const modal = document.getElementById('modal');
-  const modalClose = document.getElementById('modal-close');
-  const modalImage = document.getElementById('modal-image');
-  const modalTitle = document.getElementById('modal-title');
-  const modalDescription = document.getElementById('modal-description');
-  const modalSpecs = document.getElementById('modal-specs');
-  const nav = document.querySelector('.site-nav');
-  const navToggle = document.querySelector('.nav-toggle');
-  const yearEl = document.getElementById('year');
 
-  if (yearEl) yearEl.textContent = new Date().getFullYear();
+  // Intersection Observer for scroll animations
+  const observerOptions = {
+    threshold: 0.1,
+    rootMargin: "0px 0px -50px 0px"
+  };
 
-  if (navToggle && nav) {
-    navToggle.addEventListener('click', function () {
-      const open = nav.classList.toggle('is-open');
-      navToggle.setAttribute('aria-expanded', open);
-      navToggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+  const scrollObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        scrollObserver.unobserve(entry.target);
+      }
     });
-    nav.querySelectorAll('.nav-link').forEach(function (link) {
-      link.addEventListener('click', function () {
-        nav.classList.remove('is-open');
-        navToggle.setAttribute('aria-expanded', 'false');
-        navToggle.setAttribute('aria-label', 'Open menu');
-      });
-    });
-  }
+  }, observerOptions);
+
+  // Observe existing static elements
+  document.querySelectorAll('.animate-on-scroll').forEach(el => scrollObserver.observe(el));
 
   function getAssetPath(path) {
     if (!path) return path;
-    if ((window.location.protocol === 'http:' || window.location.protocol === 'https:') && window.location.host && path.indexOf('/') !== 0) {
-      return '/' + path;
-    }
-    return path;
+    // Simple robust path handling
+    return path.startsWith('/') ? path : './' + path;
   }
 
   function renderProductCard(product) {
     const card = document.createElement('article');
-    card.className = 'product-card';
+    card.className = 'product-card animate-on-scroll';
     card.setAttribute('data-product-id', product.id);
     card.setAttribute('role', 'button');
     card.setAttribute('tabindex', '0');
-    var imgSrc = getAssetPath(product.image);
-    card.innerHTML =
-      '<div class="product-card__image-wrap">' +
-      '<img class="product-card__image" src="' + escapeHtml(imgSrc) + '" alt="" loading="lazy">' +
-      '</div>' +
-      '<div class="product-card__body">' +
-      '<h2 class="product-card__name">' + escapeHtml(product.name) + '</h2>' +
-      '<p class="product-card__description">' + escapeHtml(product.description || '') + '</p>' +
-      '<span class="product-card__cta">View details & specs</span>' +
-      '</div>';
-    card.addEventListener('click', function () {
-      openModal(product);
-    });
-    card.addEventListener('keydown', function (e) {
+    card.setAttribute('aria-haspopup', 'dialog');
+    
+    const imgSrc = getAssetPath(product.image);
+    card.innerHTML = `
+      <div class="product-card__image-wrap">
+        <img class="product-card__image" 
+             src="${escapeHtml(imgSrc)}" 
+             alt="" 
+             loading="lazy" 
+             decoding="async">
+      </div>
+      <div class="product-card__body">
+        <h2 class="product-card__name">${escapeHtml(product.name)}</h2>
+        <p class="product-card__description">${escapeHtml(product.description || '')}</p>
+        <span class="product-card__cta">View details & specs</span>
+      </div>`;
+
+    card.addEventListener('click', () => openProductPage(product));
+    card.addEventListener('keydown', (e) => {
       if (e.key === 'Enter' || e.key === ' ') {
         e.preventDefault();
-        openModal(product);
+        openProductPage(product);
       }
     });
+
+    scrollObserver.observe(card);
     return card;
   }
 
@@ -72,76 +68,39 @@
     return div.innerHTML;
   }
 
-  function openModal(product) {
-    modalImage.src = getAssetPath(product.image);
-    modalImage.alt = product.name;
-    modalTitle.textContent = product.name;
-    modalDescription.textContent = product.description || '';
-    modalSpecs.innerHTML = '';
-    if (product.specs && typeof product.specs === 'object') {
-      for (const [key, value] of Object.entries(product.specs)) {
-        const dt = document.createElement('dt');
-        dt.textContent = key;
-        const dd = document.createElement('dd');
-        dd.textContent = value;
-        modalSpecs.appendChild(dt);
-        modalSpecs.appendChild(dd);
-      }
-    }
-    modalOverlay.classList.add('is-open');
-    modalOverlay.setAttribute('aria-hidden', 'false');
-    document.body.style.overflow = 'hidden';
-    modalClose.focus();
+  function openProductPage(product) {
+    if (!product || !product.id) return;
+    // Use hash so IDs survive clean-URL redirects used by some static servers.
+    window.location.href = `product.html#id=${encodeURIComponent(product.id)}`;
   }
 
-  function closeModal() {
-    modalOverlay.classList.remove('is-open');
-    modalOverlay.setAttribute('aria-hidden', 'true');
-    document.body.style.overflow = '';
-  }
-
-  modalClose.addEventListener('click', closeModal);
-  modalOverlay.addEventListener('click', function (e) {
-    if (e.target === modalOverlay) closeModal();
-  });
-  document.addEventListener('keydown', function (e) {
-    if (e.key === 'Escape' && modalOverlay.classList.contains('is-open')) closeModal();
-  });
 
   function showEmpty() {
-    loadingEl.remove();
+    if (loadingEl) loadingEl.remove();
+    container.innerHTML = ''; // clear skeletons
     const p = document.createElement('p');
     p.className = 'empty-state';
-    p.textContent = 'No products to display. Add entries to data/products.json and images to the products folder.';
+    p.textContent = 'No products to display at the moment.';
     container.appendChild(p);
   }
 
   function showProducts(products) {
-    loadingEl.remove();
-    container.querySelectorAll('.product-card').forEach(function (el) {
-      el.remove();
-    });
-    products.forEach(function (product) {
-      container.appendChild(renderProductCard(product));
-    });
+    if (loadingEl) loadingEl.remove();
+    container.innerHTML = ''; // clear skeletons and existing cards
+    products.forEach(product => container.appendChild(renderProductCard(product)));
   }
 
-  var productsPath = (window.location.protocol === 'http:' || window.location.protocol === 'https:') && window.location.host
-    ? '/data/products.json'
-    : 'data/products.json';
-  fetch(productsPath)
-    .then(function (res) {
+  fetch('data/products.json')
+    .then(res => {
       if (!res.ok) throw new Error('Failed to load products');
       return res.json();
     })
-    .then(function (data) {
+    .then(data => {
       if (!Array.isArray(data) || data.length === 0) {
         showEmpty();
       } else {
         showProducts(data);
       }
     })
-    .catch(function () {
-      showEmpty();
-    });
+    .catch(() => showEmpty());
 })();
